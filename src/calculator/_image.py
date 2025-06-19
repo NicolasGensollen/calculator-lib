@@ -6,3 +6,7 @@ class Image:
         if not isinstance(data, np.ndarray) or data.ndim != 2:
             raise TypeError("Image data should be a 2D Numpy array.")
         self._data: np.ndarray = data
+
+    @classmethod
+    def from_array(cls, data: list):
+        return cls(np.array(data))
