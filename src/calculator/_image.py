@@ -1,4 +1,5 @@
 import numpy as np
+from pathlib import Path
 
 
 class Image:
@@ -10,3 +11,9 @@ class Image:
     @classmethod
     def from_array(cls, data: list):
         return cls(np.array(data))
+
+    @classmethod
+    def from_file( cls,  file_path:str | Path)  :
+        file_path = Path(file_path)
+        import json
+        return cls.from_array(json.loads(file_path.read_text()))
